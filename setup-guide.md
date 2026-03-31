@@ -1,22 +1,5 @@
 # Meta Quest Set Up Guide
 
-## Requirements
-
-#### Meta XR Plugin version
-- Minimum Meta XR Plugin: 72.0
-
-#### Unreal version
-- Minimum Unreal version: 5.5
-
-#### HISPlayer SDK version
-- Minimum HISPlayer SDK version: 2.2.0 with Vulkan support.
-
-#### Supported Android Version
-- Minor version - Android 12
-- Recommended SDK: 34 / 35
-- Recommended NDK: 27.2.12479018
-- Recommended JDK: JDK 21
-
 ## Unreal 5 and Meta XR Plugin Integration
 
 If you use OpenXR instead of MetaXR, please skip this step.

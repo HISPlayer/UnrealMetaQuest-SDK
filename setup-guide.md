@@ -2,6 +2,8 @@
 
 ## Unreal 5 and Meta XR Plugin Integration
 
+If you use OpenXR instead of MetaXR, please skip this step.
+
 Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
 
 **Please, select the MetaXR version corresponding to your UE version**
@@ -120,7 +122,7 @@ Make sure that you have clicked Configure Android Settings.
 
 ## HISPlayer VR Sample
 ### Download the Sample
-Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayerVRSample.zip) (no need to download it if you have received it in the email). 
+Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayerVRSample.zip) (no need to download it if you have received it in the email). This sample requires MetaXR plugin. 
 
 ### Import HISPlayer SDK
 Please use HISPlayer SDK v2.2.0 and above with **Vulkan** support.
@@ -200,7 +202,7 @@ The HISPlayer UI components are connected to the default VRTemplate's device inp
 ## HISPlayer 8K 360 Video VR Sample
 
 ### Download the Sample
-Please, download the sample here: [**HISPlayer 8K 360 VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayer8K360VRSample.zip) (no need to download it if you have received it in the email). 
+Please, download the sample here: [**HISPlayer 8K 360 VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayer8K360VRSample.zip) (no need to download it if you have received it in the email). This sample requires MetaXR plugin.
 
 ### Import the SDK and using the Sample
 

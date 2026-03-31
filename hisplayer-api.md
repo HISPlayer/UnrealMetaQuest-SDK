@@ -220,11 +220,11 @@ Select a certain track of a certain stream to be used as the main track. The ava
   * **Param1**: Stream index.
   * **Param2**: Track index.
 
-#### static void SynchronizeMultiStream(int primaryStreamIndex, int secondaryStreamIndex, int64 OffsetMS) // HISPlayer Synchronize Multi Stream
-Synchronize two streams using an optional offset in milliseconds. *(SDK v2.11.0.1 and above)*
+#### static void SynchronizeMultiStream(int primaryStreamIndex, int secondaryStreamIndex, int64 offsetMS = 0) // HISPlayer Synchronize Multi Stream
+Synchronizes the playback of secondary stream following the primary stream. The primaryPlayerIndex is the index of the main stream, the secondaryIndexPlayer is the index of the second stream that will be synchronized following the main stream. The offsetMs (Optional) is the time offset of the secondary player to synchronize with main player in milliseconds. Default value is 0 means both players playback are synchronized to the same timestamp. Put positive value if the secondary player should be played from a point ahead the main player’s current position. Put negative value if the secondary player should be played from a point behind the main player’s current position. The secondary stream will automatically seek following the main stream current time plus the offset. *(SDK v2.11.0.1 and above)*
   * **Param1**: Primary stream index.
   * **Param2**: Secondary stream index.
-  * **Param3**: Offset in milliseconds to apply between streams.
+  * **Param3**: Offset in milliseconds to apply between streams. *(Optional)*
 
 #### static void StopSynchronization() // HISPlayer Stop Synchronization
 Stop all active stream synchronizations. *(SDK v2.11.0.1 and above)*

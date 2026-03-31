@@ -52,4 +52,4 @@ Android development requirements for Unreal Engine depend on the specific Unreal
 
 For accurate and up-to-date setup instructions for the Android SDK, NDK, and Android Studio, please consult the official Unreal Engine documentation:
 
-https://dev.epicgames.com/documentation/en-us/unreal-engine/set-up-android-sdk-ndk-and-android-studio-using-turnkey-for-unreal-engine?application_version=5.7
+[https://dev.epicgames.com/documentation/en-us/unreal-engine/set-up-android-sdk-ndk-and-android-studio-using-turnkey-for-unreal-engine?application_version=5.7](https://dev.epicgames.com/documentation/es-es/unreal-engine/android-development-requirements-for-unreal-engine)

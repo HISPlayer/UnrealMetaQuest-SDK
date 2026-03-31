@@ -1,8 +1,40 @@
-# Setup Guide
-Through this guide, you will be introduced to the basic steps for setting up the playback.
+# Meta Quest Set Up Guide
 
-## Import Package
-First, extract the SDK from the .zip file, copy the **HISPlayer** folder and paste into the **Plugins/** directory in your project’s root (If that directory doesn’t exist, create one).
+## Requirements
+
+#### Meta XR Plugin version
+- Minimum Meta XR Plugin: 72.0
+
+#### Unreal version
+- Minimum Unreal version: 5.5
+
+#### HISPlayer SDK version
+- Minimum HISPlayer SDK version: 2.2.0 with Vulkan support.
+
+#### Supported Android Version
+- Minor version - Android 12
+- Recommended SDK: 34 / 35
+- Recommended NDK: 27.2.12479018
+- Recommended JDK: JDK 21
+
+## Unreal 5 and Meta XR Plugin Integration
+
+If you use OpenXR instead of MetaXR, please skip this step.
+
+Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
+
+**Please, select the MetaXR version corresponding to your UE version**
+
+<p align="center">
+  <img width=70% src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/47497948/9bb4f2a0-20ea-4036-9e3e-e197d25c41ee">
+</p>
+
+You can refer to any of the following guides for the Meta XR Plugin set-up for your project:
+- [Creating Your First Meta Quest VR App in Unreal Engine](https://developer.oculus.com/documentation/unreal/unreal-quick-start-guide-quest/)
+- [Unreal Engine 5.3.2 for Meta Quest VR Setup Guides](https://dev.epicgames.com/community/learning/tutorials/3Vx6/unreal-engine-5-3-2-for-meta-quest-vr) .
+
+## Import HISPlayer SDK
+Extract the SDK from the .zip file, copy the **HISPlayer** folder and paste into the **Plugins/** directory in your project’s root (If that directory doesn’t exist, create one).
 
 <p align="center">
 <img src="./images/root-dir.png">
@@ -50,8 +82,8 @@ Make sure that the "YourProjectName".Target.cs and "YourProjectName"Editor.Targe
 
 The HISPlayerSample and HISPlayerVRSample are C++ projects which already include this lines of code so, in case you are using them, you can skip to the next section.
 
-## Import BP_HISPlayer
-To use HISPlayer’s functionalities in your Level, you need to add the **BP_HISPlayer**. The is located inside **Content Browser > HISPlayer Content > Blueprint**.
+## Import HISPlayer_Blueprint
+To use HISPlayer’s functionalities in your Level, you need to add the **HISPlayer_Blueprint**. The is located inside **Content Browser > HISPlayer Content > Blueprint**.
 
 <p align="center">
 <img src="./images/browser-structure.png">
@@ -63,27 +95,27 @@ If you can’t find the **HISPlayer Content directory** in the Content Browser, 
 <img src="./images/show-content.png">
 </p>
 
-Add the **BP_HISPlayer**.
+Add the **HISPlayer_Blueprint**.
 
 <p align="center">
 <img alt="image" src="https://github.com/user-attachments/assets/e6ab4108-7e0c-4a2b-85bb-fc27af38c8e4" />
 </p>
 
-To render the content, you need to set an actor with **M_HISPlayerMat** as Material.
+To render the content, you need to set an actor with **HISPlayer_Mat** as Material.
 
 <p align="center">
 <img alt="image" src="https://github.com/user-attachments/assets/8ddc98d7-77d1-484d-91a0-dfe1a546a54a" />
 </p>
 
 ## Configure HISPlayer multistream properties
-Set the player’s parameters as desired in your **BP_HISPlayer** actor for single stream and multistream.
-It is possible to add more than one stream using one instance of the **BP_HISPlayer**, by adding more elements to the Stream URL and Target Actors arrays.
+Set the player’s parameters as desired in your **HISPlayer_Blueprint** actor for single stream and multistream.
+It is possible to add more than one stream using one instance of the **HISPlayer_Blueprint**, by adding more elements to the Stream URL and Target Actors arrays.
 
 <p align="center">
 <img src="./images/playback-props.png">
 </p>
 
-You can modify the behavior of the **BP_HISPlayer** as desired or use a custom blueprint, as long as it follows the original structure.
+You can modify the behavior of the **HISPlayer_Blueprint** as desired or use a custom blueprint, as long as it follows the original structure.
 
 <p align="center">
 <img src="./images/graphic.png">
@@ -95,27 +127,12 @@ Use the **HISPlayer API** to add your own implementation.
 
 Input the license key that is associated with the SDK. If the license key is not valid, the player won’t work and will throw an error message.
 
-To find this field, go to the Level Outliner and look for the **BP_HISPlayer** actor. Then, in the **Details** window, locate the **HISPlayer** section.
+To find this field, go to the Level Outliner and look for the **HISPlayer_Blueprint** actor. Then, in the **Details** window, locate the **HISPlayer** section.
 
 > Note: If you are using the FAB marketplace package, entering a license key is not required.
 
 <p align="center">
 <img width="849" height="681" alt="image" src="https://github.com/user-attachments/assets/74e9097f-4ab4-41f9-adf0-570e11995b91" />
-</p>
-
-## Disable Anti-Aliasing
-If you are experiencing a ghosting effect on the stream, then you will need to disable the anti-aliasing effect on your project. 
-To do that on Unreal 5, go to **Edit > Project Settings > Engine > Rendering > Default Settings > Anti-Aliasing Method** and set it to **None**.
-
-<p align="center">
-<img src="./images/AntiAliasing.png">
-</p>
-
-## Default Windows Editor RHIs
-To use the SDK in the Windows Editor, make sure that the **Default RHIs** option is settled to **DirectX11** or **DirectX12**. Otherwise, go to **Edit > Project Settings > Platforms > Windows > Targeted RHIs**.
-
-<p align="center">
-<img src="./images/DefaultRHI.png">
 </p>
 
 ## Configure Android Project Settings
@@ -126,20 +143,8 @@ Make sure that you have clicked Configure Android Settings.
 <img src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/a804c07a-1a17-4fe0-8ef5-c3ed0c006930">
 </p>
 
-If you are using **HISPlayerSDK version 2.2.0 and above**, both Vulkan and OpenGL ES3 are supported. You can select either Vulkan or OpenGL ES3 or both according to your project requirement. 
-<p align="center">
-<img src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/78f51424-f796-4097-95f3-49456cde929b">
-</p>
-
-If you are using **HISPlayerSDK version 2.1.0 and below**, make sure that only **Support OpenGL ES3** option is enabled, **Vulkan Support** is disabled. 
-<p align="center">
-<img src="./images/OpenGL.png">
-</p>
-
-All the Android Settings must be configurated according to your project needs.
-
 ## Packaging the project
-Before packaging the project, please make sure first that you are using the right NDK and JDK versions needed for your specific Unreal Engine version. You can check which ones to install on the [official Unreal documentation page](https://docs.unrealengine.com/5.2/en-US/android-development-requirements-for-unreal-engine/) . If you have installed different NDK or JDK versions on your computer, you can always change the ones you are targeting on the **Project Settings > Platforms > Android SDK** menu.
+Before packaging the project, please make sure first that you are using the right NDK and JDK versions needed for your specific Unreal Engine version. You can check which ones to install on the [official Unreal documentation page](https://dev.epicgames.com/documentation/es-es/unreal-engine/android-development-requirements-for-unreal-engine) . If you have installed different NDK or JDK versions on your computer, you can always change the ones you are targeting on the **Project Settings > Platforms > Android SDK** menu.
 
 In order to package the project, you need to make sure that **Your_Project.uproject** file has been correctly updated on the **“Plugins”** field:
 
@@ -153,12 +158,3 @@ You can update this file manually, or by clicking on the Update button when this
 <img src="./images/Update.png">
 </p>
 
-## Updating the SDK
-
-To update a HISPlayer SDK of a previous version, please follow these steps:
-* Go to your Root project folder > Plugins and delete the HISPlayer folder.
-* Paste your new HISPlayer SDK folder inside the Plugins folder.
-* Go again to your Root project folder and delete the Binaries and Intermediate folders.
-* Execute Your_Project.uproject file.
-
-Make sure that your project is closed while doing this process.

@@ -1,8 +1,10 @@
-# HISPlayer Android SDK Release Notes
-### Version 2.10.0
-##### February 26, 2026
-- [Added] Support for Unreal Engine 5.6 and 5.7.
-- [Improvement] Updated plugin content elements naming to following Unreal Engine naming conventions
+# HISPlayer Meta Quest SDK Release Notes
+### Version 2.11.0.1
+##### March 31, 2026
+- [Added] Support for Unreal Engine 5.7.
+- [Added] Support for stereoscopic video playback in Side-by-Side and Top-Bottom formats.
+- [Added] SynchronizeMultiStreams API to enable synchronization between streams with optional time offset.
+- [Added] StopSynchronization API to stop all active stream synchronizations.
 
 ### Version 2.9.0.5
 ##### November 20, 2025
@@ -10,7 +12,7 @@
 
 ### Version 2.9.0.4
 ##### November 17, 2025
-- [Improvement] Special SDK for UE 5.6 with optimized video rendering performance with Vulkan.
+- [Improvement] Meta Quest SDK for UE 5.6 with optimized video rendering performance with Vulkan.
 
 ### Version 2.9.0.3
 ##### October 22, 2025
@@ -18,83 +20,4 @@
 
 ### Version 2.9.0.2
 ##### June 24, 2025
-- [Improvement] Special SDK for UE 5.5 with optimized video rendering performance with Vulkan.
-
-### Version 2.9.0
-##### February 4, 2025
-- [Improvement] Optimized local video playback with OBB file.
-- [Improvement] Optimized performance when device is in sleep mode.
-- [Added] SetPlaybackRate and GetPlaybackRate APIs to control the current playback speed rate.
-
-### Version 2.8.0
-##### June 7, 2024
-- [Added] Local video playback support.
-
-### Version 2.7.0
-##### May 31, 2024
-- [Added] Support for non automatic date time in Android device.
-- [Improvement] Optimized HISPlayer matetrial to be color emissive without being affected by external light source.
-
-### Version 2.6.1
-##### May 21, 2024
-- [Improvement] Improvement of Get HISPlayerStatus API.
-
-### Version 2.6.0
-##### May 16, 2024
-- [Added] Multistream support for Windows, Mac, iOS and Android platforms
-- [Added] Get HISPlayerStatus API
-
-### Version 2.5.0
-##### April 30, 2024
-- [Improvement] Optimized the creation and destruction of the HISPlayer_Blueprint process.
-
-### Version 2.4.0
-##### April 26, 2024
-- [Added] UE5.4 support.
-
-### Version 2.3.0
-##### April 24, 2024
-- [Added] OnInitComplete delegate.
-- [Added] OnSeekComplete delegate.
-- [Added] Video track change and video track info retrieval related functionalities.
-- [Added] Retrieve current video resolution.
-- [Added] Playback properties support.
-
-### Version 2.2.0
-##### April 23, 2024
-- [Added] Vulkan support for Android.
-
-### Version 2.1.0
-##### April 8, 2024
-- [Added] MacOS editor support.
-
-### Version 2.0.0
-##### March 12, 2024
-- The Android SDK is combined with iOS SDK.
-
-### Version 1.3.0
-##### January 4, 2024
-- [Added] Android Widevine DRM and DRM token support
-- [Added] Windows Editor Directx12 support
-
-### Version 1.2.0
-##### December 13, 2023
-- [Added] Event system.
-- [Added] ABR and track change compatibility for Android and Windows Editor.
-
-### Version 1.1.0
-##### October 24, 2023
-- [Added] Added License Key field.
-- [Added] Support for Unreal 5.3.
-
-### Version 1.0.0
-##### August 16, 2023
-- [Added] Seek API.
-- [Added] Set Volume API.
-- [Added] Set Mute API.
-- [Added] Get Current Position API.
-- [Added] Get Total Time API.
-
-### Version 0.1.0
-##### June 13, 2023
-- [Added] Initial release of HISPlayer Android SDK for Unreal.
+- [Improvement] Initial release of HISPlayer Meta Quest SDK for UE 5.5 with optimized video rendering performance with Vulkan.

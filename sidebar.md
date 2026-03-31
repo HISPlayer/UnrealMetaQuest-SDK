@@ -3,5 +3,6 @@
 - [HISPlayer API](/hisplayer-api.md)
 - [Playing Local Files](/local-files.md)
 - [DRM](/DRM.md)
+- [Stereoscopic](/stereoscopic.md)
 - [Update the SDK](/update-the-sdk.md)
 - [Releases](/releases.md)

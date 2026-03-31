@@ -12,7 +12,7 @@
 
 ### Version 2.9.0.4
 ##### November 17, 2025
-- [Improvement] Meta Quest SDK for UE 5.6 with optimized video rendering performance with Vulkan.
+- [Added] Support for Unreal Engine 5.6.
 
 ### Version 2.9.0.3
 ##### October 22, 2025

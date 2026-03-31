@@ -1,6 +1,6 @@
 # Playing Local Files
 
-HISPlayer Android for Unreal can play local content from the device's storage. You can load the content from the **device's internal folders**, using the absolute path *(Ex: Downloads/movie.mp4)* or from the path relative to your **Content folder**, in case you have added the content into your project *(Ex: Movies/movie.mp4)*. This feature is available from HISPlayer Unreal SDK v2.8.0 and above.
+HISPlayer Meta Quest SDK for Unreal can play local content from the Unreal project. You can load the content from the path relative to your **Content folder**, in case you have added the content into your project *(Ex: Movies/movie.mp4)*.
 
 ## Project videos
 In order to add local content to your Unreal project, create a diretory named *Movies* inside the main *Content* folder of your project.
@@ -32,15 +32,3 @@ Otherwise, if you choose to package the project, save it in your **PC/Mac**, and
 <p align="center">
 <img src="./images/APK.png">
 </p>
-
-## Device’s local videos
-In order to add videos from the device, keep in mind the SDK is taking the root path of the phone storage. The next step is to pass the name (**with the extension**) to the Stream URL field.
-
-<p align="center">
-<img src="./images/local-content.png">
-</p>
-
-In the case of exploring subfolders of the devices, it’s enough adding the subfolder at the beginning of the path, e.g., using a **WhatsApp video** it is possible to provide the following path: 
-
-**WhatsApp/Media/WhatsApp Video/video.mp4**
-&nbsp;

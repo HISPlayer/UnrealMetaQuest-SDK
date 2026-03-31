@@ -2,7 +2,7 @@
 
 ## Unreal 5 and Meta XR Plugin Integration
 
-If you use OpenXR instead of MetaXR, please skip this step.
+If you use OpenXR instead of MetaXR, please skip this section.
 
 Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
 

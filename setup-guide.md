@@ -77,13 +77,13 @@ If you can’t find the **HISPlayer Content directory** in the Content Browser, 
 Add the **HISPlayer_Blueprint**.
 
 <p align="center">
-<img alt="image" src="https://github.com/user-attachments/assets/e6ab4108-7e0c-4a2b-85bb-fc27af38c8e4" />
+<img alt="image" src="https://github.com/user-attachments/assets/7fed40bb-4f88-476f-a717-c754b4d8b522" />
 </p>
 
 To render the content, you need to set an actor with **HISPlayer_Mat** as Material.
 
 <p align="center">
-<img alt="image" src="https://github.com/user-attachments/assets/8ddc98d7-77d1-484d-91a0-dfe1a546a54a" />
+<img alt="image" src="https://github.com/user-attachments/assets/bf02d0f1-be8e-4f18-8770-424c4b874b0b" />
 </p>
 
 ## Configure HISPlayer multistream properties

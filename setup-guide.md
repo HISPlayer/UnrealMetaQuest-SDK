@@ -108,8 +108,6 @@ Input the license key that is associated with the SDK. If the license key is not
 
 To find this field, go to the Level Outliner and look for the **HISPlayer_Blueprint** actor. Then, in the **Details** window, locate the **HISPlayer** section.
 
-> Note: If you are using the FAB marketplace package, entering a license key is not required.
-
 <p align="center">
 <img width="849" height="681" alt="image" src="https://github.com/user-attachments/assets/74e9097f-4ab4-41f9-adf0-570e11995b91" />
 </p>

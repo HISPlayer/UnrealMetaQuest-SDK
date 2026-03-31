@@ -219,3 +219,12 @@ Get the ID of a certain track of a certain stream. *(SDK v2.3.0 and above)*
 Select a certain track of a certain stream to be used as the main track. The available tracks can be obtained from the tracks returned from the method GetTracks. *(SDK v2.3.0 and above)*
   * **Param1**: Stream index.
   * **Param2**: Track index.
+
+#### static void SynchronizeMultiStream(int primaryStreamIndex, int secondaryStreamIndex, int64 OffsetMS) // HISPlayer Synchronize Multi Stream
+Synchronize two streams using an optional offset in milliseconds. *(SDK v2.11.0.1 and above)*
+  * **Param1**: Primary stream index.
+  * **Param2**: Secondary stream index.
+  * **Param3**: Offset in milliseconds to apply between streams.
+
+#### static void StopSynchronization() // HISPlayer Stop Synchronization
+Stop all active stream synchronizations. *(SDK v2.11.0.1 and above)*

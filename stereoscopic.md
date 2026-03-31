@@ -2,8 +2,6 @@
 
 HISPlayer SDK v2.11.0.1 and above support stereoscopic Side-By-Side (Left/Right) and Top/Bottom video rendering.
 
-This feature is supported in **HISPlayer SDK** when integrated into **Unreal Engine** projects.
-
 ---
 
 ## HISPlayer_Blueprint Configuration

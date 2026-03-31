@@ -4,7 +4,7 @@
 - [Added] Support for Unreal Engine 5.7.
 - [Added] Support for stereoscopic video playback in Side-by-Side and Top-Bottom formats.
 - [Added] SynchronizeMultiStreams API to enable synchronization between streams with optional time offset.
-- [Added] StopSynchronization API to stop all active stream synchronizations.
+- [Added] StopSynchronization API to stop all active stream synchronization.
 
 ### Version 2.9.0.5
 ##### November 20, 2025

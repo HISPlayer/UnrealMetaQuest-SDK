@@ -1,6 +1,6 @@
 # Caching
 
-HISPlayer Android for Unreal supports caching for HLS, DASH and Progressive Download(mp4) URLs to load the video faster from the cache.
+HISPlayer Meta Quest for Unreal supports caching for HLS, DASH and Progressive Download(mp4) URLs to load the video faster from the cache.
 
 ### HISPlayer Types
 

@@ -1,4 +1,4 @@
-# Meta XR Plugin / Meta Quest Set Up Guide
+# Meta Quest Set Up Guide
 
 ## Requirements
 
@@ -25,7 +25,9 @@ You may also use [Meta Quest Developer Hub](https://developer.oculus.com/documen
 
 ## Unreal 5 and Meta XR Plugin Integration
 
-First, please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
+If you use OpenXR instead of MetaXR, please skip this step.
+
+Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
 
 **Please, select the MetaXR version corresponding to your UE version**
 

@@ -1,8 +1,8 @@
-# UnrealAndroid-SDK
+# UnrealMetaQuest-SDK
 
-HISPlayer is the most advanced Unreal Engine Media Player for Android VOD and live contents. It enables premium DRM protected DASH and HLS video streaming inside your Unreal Engine games, metaverses, XR apps on Android.
+HISPlayer is the most advanced Unreal Engine Media Player for Meta Quest VOD and live contents. It enables premium DRM protected DASH and HLS video streaming inside your Unreal Engine games, metaverses, XR apps on Meta Quest.
 
-# [The full Documentation](https://hisplayer.github.io/UnrealAndroid-SDK/#/)
+# [The full Documentation](https://hisplayer.github.io/UnrealMetaQuest-SDK/#/)
 
 <br>
 
@@ -23,7 +23,7 @@ HISPlayer is the most advanced Unreal Engine Media Player for Android VOD and li
 
 ## Try our Unreal Engine Video Player SDK Now!
 
-To get a demo of our latest Unreal SDK for Android, contact us here.
+To get a demo of our latest Unreal SDK for Meta Quest, contact us here.
 
 * [Request demo](https://hisplayer.com/demo-unreal-engine-player-sdk/)
 

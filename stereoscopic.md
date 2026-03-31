@@ -1,66 +1,59 @@
 # Stereoscopic Video
 
-HISPlayer SDK v5.1.0 and above support stereoscopic Side-By-Side (Left/Right) and Top/Bottom video rendering. **MV-HEVC** video codec is also supported with maximum resolution 1080p for smooth playback. 
+HISPlayer SDK v2.11.0.1 and above support stereoscopic Side-By-Side (Left/Right) and Top/Bottom video rendering.
 
-There are 2 ways to render stereoscopic video depending on the selected **Render Mode**.
+This feature is supported in **HISPlayer SDK** when integrated into **Unreal Engine** projects.
 
-## External Surface Render Mode
-If you use **External Surface** Render Mode in HISPlayer multistream properties, please use below API in your script:
-#### void SetStereoscopicRendering(int playerIndex, HISPlayerStereoMode stereoMode, ref bool overrideRect, ref Rect srcRectLeft, ref Rect srcRectRight, ref Rect destRectLeft, ref Rect destRectRight)
-Set stereoscopic rendering side by side or top/bottom. Only supported with external surface rendering mode. You may call this API after calling **SetUpPlayer** API. The parameters marked with ref keyword can be retrieved from public properties of OVROverlay. Usage example: 
-```
-SetStereoscopicRendering(streamIndex, HISPlayerStereoMode.LeftRight, ref overlay.overrideTextureRectMatrix, ref overlay.srcRectLeft, ref overlay.srcRectRight, ref overlay.destRectLeft, ref overlay.destRectRight);
-```
+---
 
-## Material / RenderTexture / RawImage Render Mode
-If you use **Material** or **RenderTexture** Render Mode in HISPlayer multistream properties, after creating your RenderTexture and Material, please attach **HISPlayerStereoscopicShader** shader to your Material.
+## HISPlayer_Blueprint Configuration
 
-Set the 3D Layout option to **Left Right** or **Top Bottom** depending on your stereoscopic video format.
+Inside the `HISPlayer_Blueprint`, stereoscopic behavior is controlled using the following setting:
+
+### Stereo Format Array
+
+The `Stereo Format` array defines the stereoscopic type for each video stream.
 
 <p align="center">
-  <img width="70%" alt="image" src="https://github.com/user-attachments/assets/04e2dbdf-d102-4e42-b0f6-acb50799444e">
+  <img width="524" height="168" alt="image" src="https://github.com/user-attachments/assets/18aa7822-7fa1-49c2-92a5-edb5ed6a755e" />
 </p>
 
-If you use **RawImage** Render Mode, please attach the Material with HISPlayerStereoscopicShader above to the material attribute of the RawImage component.
+Each element in this array corresponds directly to the same index in the `Stream URL` array.
 
-<p align="center">
-  <img width="70%" alt="image" src="https://github.com/user-attachments/assets/29d98b03-edc3-4008-8ba5-19109e2fc150">
-</p>
+---
 
-## HISPlayer Meta Quest Stereo Sample
+## Stream Mapping
 
-Before using the sample, make sure that you have imported HISPlayer SDK. If not, please follow the [**Quickstart Guide**](./setup-guide.md).
+| Stream URL Index | Stereo Format Index | Description |
+|------------------|---------------------|-------------|
+| 0                | 0                   | First video stream |
+| 1                | 1                   | Second video stream |
+| ...              | ...                 | ... |
 
-Please download the sample here: [HISPlayer_MetaQuest_Stereo_Sample.unitypackage](https://downloads.hisplayer.com/Unity/Quest/HISPlayer_MetaQuest_Stereo_Sample.unitypackage) and import it to your Unity project.
+This means every video stream must have its matching stereoscopic configuration in the same array position.
 
-The sample includes 2 scenes:
-* **HISPlayerMetaQuestStereoExtSurface**: Render a local stereoscopic Side-By-Side video with **ExternalSurface** Render Mode. This render mode is recommended for better performance. **SetStereoscopicRendering** API is called in the script. 
-* **HISPlayerMetaQuestStereoRT**: Render a local stereoscopic Side-By-Side video with **Render Texture** Render Mode. **HISPlayerStereoscopicShader.shader** is used.
+---
 
-To use the sample, follow below steps:
-* Open **Assets\HISPlayerMetaQuestStereoSample\Scenes\ISPlayerMetaQuestStereoExtSurface.unity** or **Assets\HISPlayerMetaQuestStereoSample\Scenes\HISPlayerMetaQuestStereoRT.unity**.
-* Import TextMeshPro. Go to Unity Window > TextMeshPro > Import TMP Essential Resources.
-* If you received a license key from HISPlayer, input the license key through the Inspector Unity window: **StreamController** GameObject > HISPlayerSample component > **License Key**
-* Open File > Build Settings > Add Open Scenes
-* Build and Run
+## Supported Stereo Formats
 
-To check how to set up the SDK and API usage, please refer to Assets/HISPlayerMetaQuestStereoSample/Scripts/Sample/HISPlayerSample.cs and StreamController GameObject in the Editor.
+The `Stereo Format` field supports the following values:
 
-## HISPlayer Meta Quest MV-HEVC Sample
+- **None**
+  - No stereoscopic processing is applied.
+  - Standard monoscopic video playback.
 
-Before using the sample, make sure that you have imported HISPlayer SDK. If not, please follow the [**Quickstart Guide**](./setup-guide.md).
+- **TopBottom**
+  - Left and right views are stacked vertically.
+  - Common format for stereoscopic video distribution.
 
-Please download the sample here: [HISPlayer_MetaQuest_MV-HEVC_Sample.unitypackage](https://downloads.hisplayer.com/Unity/Quest/HISPlayer_MetaQuest_MV-HEVC_Sample.unitypackage) and import it to your Unity project.
+- **SideBySide**
+  - Left and right views are placed horizontally.
+  - Widely used format for 3D video content.
 
-The sample includes 2 scenes:
-* **HISPlayerMetaQuestMvHevcExtSurface**: Render a local stereoscopic Side-By-Side MV-HEVC video with **ExternalSurface** Render Mode. This render mode is recommended for better performance. **SetStereoscopicRendering** API is called in the script. 
-* **HISPlayerMetaQuestMvHevcRT**: Render a local stereoscopic Side-By-Side MV-HEVC video with **Render Texture** Render Mode. **HISPlayerStereoscopicShader.shader** is used.
+---
 
-To use the sample, follow below steps:
-* Open **Assets\HISPlayerMetaQuestMVHEVCSample\Scenes\ISPlayerMetaQuestMvHevcExtSurface.unity** or **Assets\HISPlayerMetaQuestMVHEVCSample\Scenes\HISPlayerMetaQuestMvHevcRT.unity**.
-* Import TextMeshPro. Go to Unity Window > TextMeshPro > Import TMP Essential Resources.
-* If you received a license key from HISPlayer, input the license key through the Inspector Unity window: **StreamController** GameObject > HISPlayerSample component > **License Key**
-* Open File > Build Settings > Add Open Scenes
-* Build and Run
+## Notes
 
-To check how to set up the SDK and API usage, please refer to Assets/HISPlayerMetaQuestMVHEVCSample/Scripts/Sample/HISPlayerSample.cs and StreamController GameObject in the Editor.
+- Ensure `Stream URL` and `Stereo Format` arrays always have the same length.
+- Incorrect indexing may lead to wrong rendering or broken 3D output.
+- This configuration is applied per stream, not globally.

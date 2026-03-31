@@ -36,7 +36,6 @@ Fully customizable and extensible to fit advanced streaming requirements. If you
 * UMG UI
 
 ### Supported Graphics API:
-* OpenGL ES3
 * Vulkan (supported from HISPlayerSDK version 2.2.0 and above)
 
 ### Supported Application Layer Protocol

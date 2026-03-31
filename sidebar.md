@@ -1,4 +1,4 @@
-- [HISPlayer Unreal Android SDK](/introduction.md)
+- [HISPlayer Unreal Meta Quest SDK](/introduction.md)
 - [Quickstart Guide](/setup-guide.md)
 - [HISPlayer API](/hisplayer-api.md)
 - [Meta XR Plugin / Meta Quest Set Up Guide](/metaxr.md)

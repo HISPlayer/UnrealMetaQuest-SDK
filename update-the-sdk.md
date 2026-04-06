@@ -33,3 +33,5 @@ Through this guide, you will be introduced how to update the SDK if you already 
 <p align="center">
 <img src="./images/licensekey.png">
 </p>
+
+- Make sure that all the HISPlayer Blueprint properties (Stream URL, Target Actors, Playback Properties, Stereo Format, DRM) are properly set as the same as before updating the SDK.

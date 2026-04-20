@@ -32,4 +32,4 @@ custom blueprint, please refer to the function [**OpenPlayerWithDRM**](https://h
 </p>
 
 ## Widevine L1
-If you need to play Widevine L1 content with Meta Quest devices, please [contact HISPlayer team](https://hisplayer.com/demo-unity-player-sdk-for-meta-quest/). 
+If you need to play Widevine L1 content with Meta Quest devices, please [contact HISPlayer team](https://hisplayer.com/demo-ue-player-sdk-for-meta-quest/). 

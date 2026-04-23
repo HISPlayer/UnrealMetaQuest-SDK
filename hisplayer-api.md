@@ -221,7 +221,11 @@ Select a certain track of a certain stream to be used as the main track. The ava
   * **Param2**: Track index.
 
 #### static void SynchronizeMultiStream(int primaryStreamIndex, int secondaryStreamIndex, int64 offsetMS = 0) // HISPlayer Synchronize Multi Stream
-Synchronizes the playback of secondary stream following the primary stream. The primaryPlayerIndex is the index of the main stream, the secondaryIndexPlayer is the index of the second stream that will be synchronized following the main stream. The offsetMs (Optional) is the time offset of the secondary player to synchronize with main player in milliseconds. Default value is 0 means both players playback are synchronized to the same timestamp. Put positive value if the secondary player should be played from a point ahead the main player’s current position. Put negative value if the secondary player should be played from a point behind the main player’s current position. The secondary stream will automatically seek following the main stream current time plus the offset. *(SDK v2.11.0.1 and above)*
+Synchronizes the playback of a secondary stream following the primary stream. The primaryStreamIndex is the index of the main stream, and the secondaryStreamIndex is the index of the stream that will follow it.
+The offsetMS (Optional) defines the time offset in milliseconds between both streams. A value of 0 means both streams are synchronized to the same timestamp. Use a positive value if the secondary stream should play ahead of the primary stream, or a negative value if it should play behind.
+The secondary stream will automatically seek to match the primary stream current time plus the defined offset.
+Additionally, playback control operations are synchronized across all linked streams. When calling **Play, Pause, Stop, or Seek** on the primary stream, the same action is automatically applied to all synchronized secondary streams. This removes the need to manually control each stream individually. *(SDK v2.11.0.1 and above)*
+
   * **Param1**: Primary stream index.
   * **Param2**: Secondary stream index.
   * **Param3**: Offset in milliseconds to apply between streams. *(Optional)*

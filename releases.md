@@ -1,4 +1,12 @@
 # HISPlayer Meta Quest SDK Release Notes
+
+### Version 2.11.0.2
+##### April 23, 2026
+- [**Improvement**] Improved stability of multi streams initialization.
+- [**Improvement**] Enhanced multi streams synchronization feature stability and accuracy, removing the need to wait for video initialization.
+- [**Improvement**] Extended stream synchronization to playback control actions, ensuring synchronized streams respond consistently to Play, Pause, Seek and Stop.
+- [**Improvement**] Optimized Android packaging with Shipping configuration.
+
 ### Version 2.11.0.1
 ##### March 31, 2026
 - [**Added**] Support for Unreal Engine 5.7.

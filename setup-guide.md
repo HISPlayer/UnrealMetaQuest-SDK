@@ -65,7 +65,7 @@ The HISPlayerSample and HISPlayerVRSample are C++ projects which already include
 To use HISPlayer’s functionalities in your Level, you need to add the **BP_HISPlayer**. The is located inside **Content Browser > HISPlayer Content > Blueprint**.
 
 <p align="center">
-<img src="./images/browser-structure.png">
+<img width="477" height="313" alt="image" src="https://github.com/user-attachments/assets/be595bc6-ccd8-45c0-94c4-0735825edca9" />
 </p>
 
 If you can’t find the **HISPlayer Content directory** in the Content Browser, check “Show Plugin Content” in “View Options”.
@@ -77,13 +77,13 @@ If you can’t find the **HISPlayer Content directory** in the Content Browser, 
 Add the **BP_HISPlayer**.
 
 <p align="center">
-<img alt="image" src="https://github.com/user-attachments/assets/7fed40bb-4f88-476f-a717-c754b4d8b522" />
+<img width="2531" height="1096" alt="image" src="https://github.com/user-attachments/assets/bcd0377d-395e-4280-a6d9-235cd17045e6" />
 </p>
 
 To render the content, you need to set an actor with **M_HISPlayerMat** as Material.
 
 <p align="center">
-<img alt="image" src="https://github.com/user-attachments/assets/bf02d0f1-be8e-4f18-8770-424c4b874b0b" />
+<img width="2528" height="1115" alt="image" src="https://github.com/user-attachments/assets/471a0e80-5c9d-4be0-87f0-2edd941ceaa7" />
 </p>
 
 ## Configure HISPlayer multistream properties
@@ -167,7 +167,7 @@ To build for Meta Quest, you should configure your Android platform setting by f
 Input the license key that is associated with the SDK. If the license key is not valid, the player won’t work and will throw an error message. To find this field, go to the Level Outliner and look for the BP_HISPlayer actor. Then, on the Details window, look for the HISPlayer section.
 
 <p align="center">
-<img src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/5be90641-47f9-44bc-bae3-ebb084199126">
+<img width="806" height="851" alt="image" src="https://github.com/user-attachments/assets/d4e8b61b-0a46-4269-977b-20e4fca33511" />
 </p>
 
 Then, package the project for the Android Platform, or deploy for your Quest device, in case it is connected to your PC through the Meta Quest Link App.

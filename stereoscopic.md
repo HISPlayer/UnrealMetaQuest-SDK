@@ -4,9 +4,9 @@ HISPlayer SDK v2.11.0.1 and above support stereoscopic Side-By-Side (Left/Right)
 
 ---
 
-## HISPlayer_Blueprint Configuration
+## BP_HISPlayer Configuration
 
-Inside the `HISPlayer_Blueprint`, stereoscopic behavior is controlled using the following setting:
+Inside the `BP_HISPlayer`, stereoscopic behavior is controlled using the following setting:
 
 ### Stereo Format Array
 

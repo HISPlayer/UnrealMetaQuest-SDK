@@ -1,5 +1,10 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 2.11.0.3
+##### May 12, 2026
+- [**Improvement**] Enhanced ABR playback rendering to ensure video textures are updated correctly when stream resolution changes.
+- [**Improvement**] Updated plugin content naming to follow Unreal Engine naming conventions.
+
 ### Version 2.11.0.2
 ##### April 23, 2026
 - [**Improvement**] Improved stability of multi streams initialization.

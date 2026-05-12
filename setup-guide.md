@@ -124,7 +124,7 @@ Make sure that you have clicked Configure Android Settings.
 ### Download the Sample
 Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayerVRSample_1.0.1.zip) (no need to download it if you have received it in the email). This sample requires MetaXR plugin.
 
-For projects using Unreal Engine 5.7, an OpenXR-based sample is available here: [**HISPlayer VR Sample UE5.7 OpenXR**](https://downloads.hisplayer.com/Unreal/Quest/HISVRSample_UE57_1.0.1.zip).
+For projects using Unreal Engine 5.7, an OpenXR-based sample is available here: [**HISPlayer VR Sample UE5.7 OpenXR**](https://downloads.hisplayer.com/Unreal/Quest/HISVRSample_UE57_1.0.2.zip).
 
 ### Import HISPlayer SDK
 Please use HISPlayer SDK and above with **Vulkan** support.

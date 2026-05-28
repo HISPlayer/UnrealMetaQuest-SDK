@@ -1,32 +1,20 @@
 # Meta Quest Set Up Guide
 
-## Unreal 5 and Meta XR Plugin Integration
-
-If you use OpenXR instead of MetaXR, please skip this section.
-
-Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
-
-**Please, select the MetaXR version corresponding to your UE version**
-
-<p align="center">
-  <img width=70% src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/47497948/9bb4f2a0-20ea-4036-9e3e-e197d25c41ee">
-</p>
-
 ## Import HISPlayer SDK
-Extract the SDK from the .zip file, copy the **HISPlayer** folder and paste into the **Plugins/** directory in your project’s root (If that directory doesn’t exist, create one).
+Extract the SDK from the .zip file, copy the `HISPlayer` folder and paste into the `Plugins/` directory in your project’s root (If that directory doesn’t exist, create one).
 
 <p align="center">
-<img src="./images/root-dir.png">
+  <img width="371" height="219" alt="image" src="https://github.com/user-attachments/assets/a06c3074-3aef-443e-8536-2becdccd1e97" />
 </p>
 
-Then, go into the **HISPlayer** directory and open the **HISPlayer.uplugin** file. You need to check that the **Engine Version** in this file matches the Unreal Engine version of your project.
+Then, go into the `HISPlayer` directory and open the `HISPlayer.uplugin` file. You need to check that the **Engine Version** in this file matches the Unreal Engine version of your project.
 
 > ⚠ Don’t worry about the full version number. The **Engine Version** field only cares about the **major** and **minor** version numbers. Ignore the patch number.
 
 Example:
 1. Suppose your project uses **Unreal Engine 5.5.4**.  
-2. Open **HISPlayer.uplugin**.  
-3. Locate the field **"Engine Version"**.  
+2. Open `HISPlayer.uplugin`.  
+3. Locate the field `"Engine Version"`.  
 4. Enter only the **major** and **minor** numbers: `5.5.0`.  
    - ✅ Correct: `5.5.0`  
    - ❌ Incorrect: `5.5.4` (the patch number `.4` will be ignored anyway)  
@@ -39,7 +27,7 @@ If you are unsure, always use `X.Y.0` where `X` is the major version and `Y` is 
 <img width="300" height="39" alt="image" src="https://github.com/user-attachments/assets/99731622-62ef-423c-8875-9aff98f5de60" />
 </p>
 
-Open your project and go into Edit > Plugins, look for the HISPlayer plugin and if it’s disabled, enable it and restart the project.
+Open your project and go into **Edit > Plugins**, look for the `HISPlayer` plugin and if it’s disabled, enable it and restart the project.
 
 <p align="center">
 <img width="933" height="121" alt="image" src="https://github.com/user-attachments/assets/ac60e0a0-0625-45ed-9ae0-067ef31b63d3" />
@@ -52,29 +40,77 @@ It is preferable to use the HISPlayer SDK in a C++ project, rather than in an on
 <img src="./images/CreateScript.png">
 </p>
 
-Make sure that the "YourProjectName".Target.cs and "YourProjectName"Editor.Target.cs scripts located in the Source directory have the following setup:
+Make sure that the `YourProjectName.Target.cs` and `YourProjectNameEditor.Target.cs` scripts located in the `Source` directory have the following setup:
+
+```
+public class HISPlayerVRSampleTarget : TargetRules
+{
+	public HISPlayerVRSampleTarget(TargetInfo Target) : base(Target)
+	{
+#if UE_5_7_OR_LATER
+		Type = TargetType.Game;
+		DefaultBuildSettings = BuildSettingsVersion.V6;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
+		ExtraModuleNames.Add("HISPlayerVRSample");
+#elif UE_5_4_OR_LATER
+		Type = TargetType.Game;
+		DefaultBuildSettings = BuildSettingsVersion.V5;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
+		ExtraModuleNames.Add("HISPlayerVRSample");
+#else
+		Type = TargetType.Game;
+        DefaultBuildSettings = BuildSettingsVersion.V2;
+        ExtraModuleNames.AddRange(new string[] { "HISPlayerVRSample" });
+#endif
+    }
+}
+```
+
+```
+public class HISPlayerVRSampleEditorTarget : TargetRules
+{
+	public HISPlayerVRSampleEditorTarget(TargetInfo Target) : base(Target)
+	{
+#if UE_5_7_OR_LATER
+		Type = TargetType.Editor;
+		DefaultBuildSettings = BuildSettingsVersion.V6;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
+		ExtraModuleNames.Add("HISPlayerVRSample");
+#elif UE_5_4_OR_LATER
+		Type = TargetType.Editor;
+		DefaultBuildSettings = BuildSettingsVersion.V5;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
+		ExtraModuleNames.Add("HISPlayerVRSample");
+#else
+		Type = TargetType.Editor;
+        DefaultBuildSettings = BuildSettingsVersion.V2;
+        ExtraModuleNames.AddRange(new string[] { "HISPlayerVRSample" });
+#endif
+    }
+}
+```
 
 <p align="center">
 <img width="673" height="535" alt="image" src="https://github.com/user-attachments/assets/a57357b2-2aff-43f5-8c53-4bcbc87ef90f" />
 <img width="683" height="552" alt="image" src="https://github.com/user-attachments/assets/a13086a7-5196-438e-9f5b-d643340383df" />
 </p>
 
-The HISPlayerSample and HISPlayerVRSample are C++ projects which already include this lines of code so, in case you are using them, you can skip to the next section.
+The `HISPlayerSample` and `HISPlayerVRSample` are C++ projects which already include this lines of code so, in case you are using them, you can skip to the next section.
 
 ## Import BP_HISPlayer
-To use HISPlayer’s functionalities in your Level, you need to add the **BP_HISPlayer**. The is located inside **Content Browser > HISPlayer Content > Blueprint**.
+To use HISPlayer’s functionalities in your Level, you need to add the `BP_HISPlayer`. It is located inside `Content Browser > HISPlayer Content > Blueprint`.
 
 <p align="center">
 <img width="477" height="313" alt="image" src="https://github.com/user-attachments/assets/be595bc6-ccd8-45c0-94c4-0735825edca9" />
 </p>
 
-If you can’t find the **HISPlayer Content directory** in the Content Browser, check “Show Plugin Content” in “View Options”.
+If you can’t find the `HISPlayer Content` directory in the Content Browser, check **“Show Plugin Content”** in **View Options**.
 
 <p align="center">
 <img src="./images/show-content.png">
 </p>
 
-Add the **BP_HISPlayer**.
+Add the `BP_HISPlayer`.
 
 <p align="center">
   <img 
@@ -84,7 +120,7 @@ Add the **BP_HISPlayer**.
   />
 </p>
 
-To render the content, you need to set an actor with **M_HISPlayerMat** as Material.
+To render the content, you need to set an actor with `M_HISPlayerMat` as Material.
 
 <p align="center">
   <img 
@@ -95,14 +131,14 @@ To render the content, you need to set an actor with **M_HISPlayerMat** as Mater
 </p>
 
 ## Configure HISPlayer multistream properties
-Set the player’s parameters as desired in your **BP_HISPlayer** actor for single stream and multistream.
-It is possible to add more than one stream using one instance of the **BP_HISPlayer**, by adding more elements to the Stream URL and Target Actors arrays.
+Set the player’s parameters as desired in your `BP_HISPlayer` actor for single stream and multistream.
+It is possible to add more than one stream using one instance of the `BP_HISPlayer`, by adding more elements to the **Stream URL** and **Target Actors** arrays.
 
 <p align="center">
 <img src="./images/playback-props.png">
 </p>
 
-You can modify the behavior of the **BP_HISPlayer** as desired or use a custom blueprint, as long as it follows the original structure.
+You can modify the behavior of the `BP_HISPlayer` as desired or use a custom blueprint, as long as it follows the original structure.
 
 <p align="center">
 <img src="./images/graphic.png">
@@ -114,113 +150,111 @@ Use the **HISPlayer API** to add your own implementation.
 
 Input the license key that is associated with the SDK. If the license key is not valid, the player won’t work and will throw an error message.
 
-To find this field, go to the Level Outliner and look for the **BP_HISPlayer** actor. Then, in the **Details** window, locate the **HISPlayer** section.
+To find this field, go to the Level Outliner and look for the `BP_HISPlayer` actor. Then, in the **Details** window, locate the **HISPlayer** section.
 
 <p align="center">
 <img width="849" height="681" alt="image" src="https://github.com/user-attachments/assets/74e9097f-4ab4-41f9-adf0-570e11995b91" />
 </p>
 
 ## Configure Android Project Settings
-Please go to  **Edit > Project Settings > Platforms > Android**.
+Please go to **Edit > Project Settings > Platforms > Android**.
 
-Make sure that you have clicked Configure Android Settings.
+Make sure that you have clicked **Configure Android Settings**.
 <p align="center">
 <img src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/a804c07a-1a17-4fe0-8ef5-c3ed0c006930">
 </p>
 
 ## HISPlayer VR Sample
 ### Download the Sample
-Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayerVRSample_1.0.1.zip) (no need to download it if you have received it in the email). This sample requires MetaXR plugin.
-
-For projects using Unreal Engine 5.7, an OpenXR-based sample is available here: [**HISPlayer VR Sample UE5.7 OpenXR**](https://downloads.hisplayer.com/Unreal/Quest/HISVRSample_UE57_1.0.2.zip).
+Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayerVRSample_1.0.2.zip) (no need to download it if you have received it in the email).
 
 ### Import HISPlayer SDK
 Please use HISPlayer SDK and above with **Vulkan** support.
 
 If you have not imported HISPlayer SDK yet, please follow the [Setup Guide](./setup-guide.md).
-Extract the SDK from the .zip file, copy the **HISPlayer** folder and paste into the HISPlayerVRSample\Plugins directory.
+Extract the SDK from the .zip file, copy the `HISPlayer` folder and paste into the `HISPlayerVRSample\Plugins` directory.
 
 ### Using the Sample
 The HISPlayer VR Sample default UE version is 5.5. If you want to update it to a higher UE version, please do the following:
-- Right click on the **HISPlayerVRSample.uproject** file, select the option "Switch Unreal Engine Version" and select your UE version.
+- Right click on the `HISPlayerVRSample.uproject` file, select the option **"Switch Unreal Engine Version"** and select your UE version.
 
-Open **HISPlayerVRSample.uproject**. Once the project is opened, you should be inside the **HISPlayerVRLevel** map. You can select other level such as **HISPlayerVRLevelMultistream** from ContentBrowser -> HISPlayerResources -> Levels. 
+Open `HISPlayerVRSample.uproject`.
+
+### Available Levels
+Once the project is opened, you should be inside the `HISPlayerVRLevel` map. You can select other levels from `Content Browser > HISPlayerResources > Levels`:
+- `HISPlayerVR180StereoscopicLevel`
+- `HISPlayerVR360Level`
+- `HISPlayerVRLevel`
+- `HISPlayerVRLevelMultistream`
+- `HISPlayerVRStereoscopicLevel`
 
 <p align="center">
-  <img alt="image" src="./images/Level.png">
+  <img width="1918" height="361" alt="image" src="https://github.com/user-attachments/assets/4220a39b-71ac-4c67-b900-5d452ebc5988" />
+</p>
+
+For scenes `HISPlayerVR360Level` and `HISPlayerVR180StereoscopicLevel`, the meshes `SM_HISPlayer_Sphere` and `SM_HISPlayer_180Sphere` are used as actors to render the videos. These actors are attached to `BP_HISPlayer`.
+
+<p align="center">
+  <img width="670" height="427" alt="image" src="https://github.com/user-attachments/assets/274a5a0e-11c6-4bad-9b25-8d8b9ca5618d" />
+</p>
+
+### Sample Description
+The HISPlayer VR Sample is made based on the Unreal Engine [Virtual Reality Template](https://dev.epicgames.com/documentation/en-us/unreal-engine/vr-template-in-unreal-engine?application_version=5.3)
+
+The important UI components are located in `HISPlayerVRSample\Content\HISPlayerResources\UI`:
+- `HISPlayer_UI.uasset`: Widget Blueprint of the video playback control UI
+- `HISPlayer_UI_Actor.uasset`: Blueprint class to place the `HISPlayer_UI` widget to VR space. The `HISPlayer_UI` is attached as a widget component.
+- `HISPlayer_UI_OnClick.uasset`: Represents an abstract game action for `HISPlayer_UI` that can be mapped to Meta Quest left and right hand controllers 
+
+<p align="center">
+  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/f8ea1676-89c7-4bf0-a6f7-e1c57291c764">
+</p>
+
+The HISPlayer UI components are connected to the default VRTemplate's device input action mapping (`IMC_Default`) and Blueprint class (`VRPawn`):
+- `HISPlayerVRSample\Content\VRTemplate\Input\IMC_Default.uasset`: The `HISPlayer_UI_OnClick` is mapped in this input mapping context asset. It represents the Meta Quest left and right hand controllers input action for `HISPlayer_UI`.
+<p align="center">
+  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/62b5a0d8-720d-4cba-8de5-790a715a88ed">
+</p>
+
+- `HISPlayerVRSample\Content\VRTemplate\Blueprints\VRPawn.uasset`: a Pawn is the physical representation of the user and defines how the user interacts with the virtual world. In the VR Template, the Pawn contains the logic for input events from the motion controllers. You can also control the behavior of Meta Quest left and right hand controller through `WidgetInteractionLeft` and `WidgetInteractionRight`. The Blueprint also controls the UI interaction with the Meta Quest left and right hand controllers emulating the left-mouse click. 
+<p align="center">
+  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/77e24f0b-32b8-4ea9-a22c-6c98b2582ece">
+</p>
+
+## Unreal 5 and Meta XR Plugin Integration
+
+Please configure your Unreal engine version for Meta Quest by installing the [Unreal 5 Meta XR Plugin](https://developer.oculus.com/downloads/package/unreal-engine-5-integration/64.0/) into your engine.
+
+**Please, select the MetaXR version corresponding to your UE version**
+
+<p align="center">
+  <img width=70% src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/47497948/9bb4f2a0-20ea-4036-9e3e-e197d25c41ee">
 </p>
 
 To build for Meta Quest, you should configure your Android platform setting by following official guide from Meta: [Configure the Project for Meta Quest Development](https://developer.oculus.com/documentation/unreal/unreal-quick-start-guide-quest/#configure) or follow below steps:
 
-- Go to Edit > Plugins and select the Virtual Reality section.
-- Enable the Meta XR plugin.
+- Go to **Edit > Plugins** and select the **Virtual Reality** section.
+- Enable the **Meta XR** plugin.
 
 <p align="center">
   <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/b556773d-a5f8-41ed-9351-a4c4dfabacc5">
 </p>
 
-- Choose restart editor on the prompt.
-- Select the Meta XR tools button then Project Setup Tool to open the Project Setup Tool.
+- Choose **Restart Editor** on the prompt.
+- Select the **Meta XR Tools** button then **Project Setup Tool** to open the Project Setup Tool.
 <p align="center">
   <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/737e3e7b-1f61-46a6-b095-af9392b5d459">
 </p>
 
-- Select Apply All for Required and Recommended Rules for all devices you are targeting.
+- Select **Apply All** for **Required** and **Recommended** Rules for all devices you are targeting.
 <p align="center">
   <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/4afb7f6c-b788-4a26-bc18-2a129ba73acf">
 </p>
 
 - Restart the editor after applying settings. Note: This may require multiple restarts after applying a setting.
 
-Input the license key that is associated with the SDK. If the license key is not valid, the player won’t work and will throw an error message. To find this field, go to the Level Outliner and look for the BP_HISPlayer actor. Then, on the Details window, look for the HISPlayer section.
-
-<p align="center">
-<img width="806" height="851" alt="image" src="https://github.com/user-attachments/assets/d4e8b61b-0a46-4269-977b-20e4fca33511" />
-</p>
-
 Then, package the project for the Android Platform, or deploy for your Quest device, in case it is connected to your PC through the Meta Quest Link App.
+
 <p align="center">
   <img alt="image" src="./images/package-quest.png">
-</p>
-
-### Sample Description
-The HISPlayer VR Sample is made based on the Unreal Engine [Virtual Reality Template](https://dev.epicgames.com/documentation/en-us/unreal-engine/vr-template-in-unreal-engine?application_version=5.3)
-
-The important UI components are located in HISPlayerVRSample\Content\HISPlayerResources\UI:
-- **HISPlayer_UI.uasset**: Widget Blueprint of the video playback control UI
-- **HISPlayer_UI_Actor.uasset**: Blueprint class to place the **HISPlayer_UI** widget to VR space. The **HISPlayer_UI** is attached as a widget component.
-- **HISPlayer_UI_OnClick.uasset**: Represents an abstract game action for **HISPlayer_UI** that can be mapped to Meta Quest left and right hand controllers 
-
-<p align="center">
-  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/f8ea1676-89c7-4bf0-a6f7-e1c57291c764">
-</p>
-
-The HISPlayer UI components are connected to the default VRTemplate's device input action mapping (IMC_Default) and Blueprint class (VRPawn) :
-- HISPlayerVRSample\Content\VRTemplate\Input\IMC_Default.uasset: The **HISPlayer_UI_Onlick** is mapped in this input mapping context asset. It represents the Meta Quest left and right hand controllers input action for **HISPlayer_UI**.
-<p align="center">
-  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/62b5a0d8-720d-4cba-8de5-790a715a88ed">
-</p>
-
-- HISPlayerVRSample\Content\VRTemplate\Blueprints\VRPawn.uasset: a Pawn is the physical representation of the user and defines how the user interacts with the virtual world. In the VR Template, the Pawn contains the logic for input events from the motion controllers. You can also control the behavior of Meta Quest left and right hand controller through **WidgetInteractionLeft** and **WidgetInteractionRight**. The Blueprint also controls the UI interaction with the Meta Quest left and right hand controllers emulating the left-mouse click. 
-<p align="center">
-  <img alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/32887298/77e24f0b-32b8-4ea9-a22c-6c98b2582ece">
-</p>
-
-## HISPlayer 8K 360 Video VR Sample
-
-### Download the Sample
-Please, download the sample here: [**HISPlayer 8K 360 VR Sample**](https://downloads.hisplayer.com/Unreal/AllPlatforms/HISPlayer8K360VRSample_1.0.1.zip) (no need to download it if you have received it in the email). This sample requires MetaXR plugin.
-
-### Import the SDK and using the Sample
-
-To import the SDK and use the sample, please follow the same steps to set the **HISPlayerSDK** and the **MetaXR** Unreal plugins as in the regular **HISPlayer VR Sample**.
-
-You can find the **HISPlayerVR360Level** map in ContentBrowser -> HISPlayerResources -> Levels. 
-
-To package the project for a Meta XR device, please follow the same instructions as in the regular **HISPlayer VR Sample**.
-
-In this sample, we use a Static Mesh **SM_HISPlayer_Sphere** and **Sphere** actor to render 360 video. The **Sphere** actor is attached to **BP_HISPlayer** in the **Target Actors**.
-
-<p align="center">
-  <img alt="image" src="https://github.com/user-attachments/assets/5d7b7052-e570-427c-afe7-61f6835b0c0e">
 </p>

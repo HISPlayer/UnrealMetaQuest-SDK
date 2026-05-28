@@ -1,5 +1,10 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 2.11.0.4
+##### May 28, 2026
+- [**Improvement**] Adapted for OpenXR compatibility on Unreal Engine versions 5.5, 5.6, and 5.7.
+- [**Improvement**] Improved stereoscopic video quality for right eye.
+
 ### Version 2.11.0.3
 ##### May 12, 2026
 - [**Improvement**] Enhanced ABR playback rendering to ensure video textures are updated correctly when stream resolution changes.

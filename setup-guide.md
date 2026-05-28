@@ -90,11 +90,6 @@ public class HISPlayerVRSampleEditorTarget : TargetRules
 }
 ```
 
-<p align="center">
-<img width="673" height="535" alt="image" src="https://github.com/user-attachments/assets/a57357b2-2aff-43f5-8c53-4bcbc87ef90f" />
-<img width="683" height="552" alt="image" src="https://github.com/user-attachments/assets/a13086a7-5196-438e-9f5b-d643340383df" />
-</p>
-
 The `HISPlayerSample` and `HISPlayerVRSample` are C++ projects which already include this lines of code so, in case you are using them, you can skip to the next section.
 
 ## Import BP_HISPlayer

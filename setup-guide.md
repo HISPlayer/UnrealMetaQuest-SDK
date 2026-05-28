@@ -184,7 +184,11 @@ Once the project is opened, you should be inside the `HISPlayerVRLevel` map. You
 - `HISPlayerVRStereoscopicLevel`
 
 <p align="center">
-  <img width="1918" height="361" alt="image" src="https://github.com/user-attachments/assets/4220a39b-71ac-4c67-b900-5d452ebc5988" />
+  <img 
+    alt="image" 
+    src="https://github.com/user-attachments/assets/4220a39b-71ac-4c67-b900-5d452ebc5988"
+    style="width: 100%; height: auto; max-width: 1918px; aspect-ratio: 1918 / 361;"
+  />
 </p>
 
 For scenes `HISPlayerVR360Level` and `HISPlayerVR180StereoscopicLevel`, the meshes `SM_HISPlayer_Sphere` and `SM_HISPlayer_180Sphere` are used as actors to render the videos. These actors are attached to `BP_HISPlayer`.

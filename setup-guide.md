@@ -187,7 +187,7 @@ Once the project is opened, you should be inside the `HISPlayerVRLevel` map. You
   <img 
     alt="image" 
     src="https://github.com/user-attachments/assets/4220a39b-71ac-4c67-b900-5d452ebc5988"
-    style="width: 100%; height: auto; max-width: 1918px; aspect-ratio: 1918 / 361;"
+    style="max-width: 100%; height: auto;"
   />
 </p>
 

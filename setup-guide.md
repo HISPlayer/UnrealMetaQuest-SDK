@@ -90,7 +90,25 @@ public class HISPlayerVRSampleEditorTarget : TargetRules
 }
 ```
 
-The `HISPlayerSample` and `HISPlayerVRSample` are C++ projects which already include this lines of code so, in case you are using them, you can skip to the next section.
+The `HISPlayerVRSample` is a C++ project which already include this lines of code so, in case you are using it, you can skip to the next section.
+
+## OpenXR Plugins
+
+You need to enable the OpenXR plugins. Go to **Edit > Plugins**, search for and enable the following:
+
+- `OpenXR`
+- `OpenXREyeTracker`
+- `OpenXRHandTracking`
+
+<p align="center">
+  <img 
+    alt="image" 
+    src="https://github.com/user-attachments/assets/0d578793-dcb2-4bbd-915c-83d800a993ee"
+    style="max-width: 100%; height: auto;"
+  />
+</p>
+
+The `HISPlayerVRSample` is a C++ project which already includes this lines of code so, in case you are using it, you can skip to the next section.
 
 ## Import BP_HISPlayer
 To use HISPlayer’s functionalities in your Level, you need to add the `BP_HISPlayer`. It is located inside `Content Browser > HISPlayer Content > Blueprint`.

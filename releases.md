@@ -1,5 +1,11 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 2.12.0
+##### Jul 31, 2026
+- [**Added**] Support for Unreal Engine 5.8.
+- [**Improvement**] Improved AutoPlay behavior to ensure it is consistently applied when disabled during playback initialization.
+- [**Improvement**] Improved video texture color space handling to ensure correct brightness levels across Editor platforms.
+
 ### Version 2.11.0.4
 ##### May 28, 2026
 - [**Improvement**] Adapted for OpenXR compatibility on Unreal Engine versions 5.5, 5.6, and 5.7.

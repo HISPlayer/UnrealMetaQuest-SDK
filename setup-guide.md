@@ -179,7 +179,7 @@ Make sure that you have clicked **Configure Android Settings**.
 
 ## HISPlayer VR Sample
 ### Download the Sample
-Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/Quest/HISPlayerVRSample_1.0.4.zip) (no need to download it if you have received it in the email).
+Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/Quest/HISPlayerVRSample_1.0.5.zip) (no need to download it if you have received it in the email).
 
 ### Import HISPlayer SDK
 Please use HISPlayer SDK v2.2.0 and above with **Vulkan** support.

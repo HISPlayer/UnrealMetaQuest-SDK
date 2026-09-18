@@ -4,5 +4,6 @@
 - [Playing Local Files](/local-files.md)
 - [DRM](/DRM.md)
 - [Stereoscopic](/stereoscopic.md)
+- [Ambisonic](/ambisonic.md)
 - [Update the SDK](/update-the-sdk.md)
 - [Releases](/releases.md)

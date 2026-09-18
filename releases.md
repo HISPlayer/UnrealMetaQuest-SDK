@@ -1,5 +1,13 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 2.13.0
+##### Sep 18, 2026
+- [**Added**] Ambisonic support.
+- [**Added**] ChangeVideoContent API support for Windows and MacOS editors.
+- [**Added**] HISPlayerError type to identify the errors reported by the SDK.
+- [**Improvement**] Improved stability when closing playback on Meta Quest.
+- [**Improvement**] Improved the error handling system.
+
 ### Version 2.12.0
 ##### Jul 31, 2026
 - [**Added**] Support for Unreal Engine 5.8.

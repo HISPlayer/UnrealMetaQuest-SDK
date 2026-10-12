@@ -9,6 +9,20 @@ The following public APIs are provided by **HISPlayerTypes**.
   * **STOP**: The content is stopped.
   * **PLAY**: The content is playing.
   * **PAUSE**: The content is paused.
+
+* **enum class EHISPlayerXRLayerShape**: The Shape of XR Video Layer:
+  * **Quad**: Quad.
+  * **Equirect360**: Equirect with 360 degrees.
+  * **Equirect180**: Equirect with 180 degrees.
+
+* **enum class HISPlayerStereoFormat**: The Video Stereo Format:
+  * **None**: Mono.
+  * **TopBottom**: Top Bottom format.
+  * **SideBySide**: Side By Side format.  
+
+* **enum class EHISPlayerXRLayerPlacement**: The Order of XR Layer Render:
+  * **Overlay**: Right after the projection layer (from index 1), before the engine's stereo layers, so stereo layers draw over the video.
+  * **Underlay**: Before the projection layer (from index 0).
    
 * **enum class HISPlayerLogLevel**: The different log levels. The log levels are accumulative, meaning that, when a higher log level is choosen, the logs of lower levels will also be displayed. For example: If Error level is choosen, only Error logs will be displayed. If Debug level is choosen; Debug, Info, Warning and Error messages will be displayed:
   * **DEBUG**: Logs messages useful for debugging and troubleshooting purposes, typically only visible during development.
@@ -21,6 +35,12 @@ The following public APIs are provided by **HISPlayerTypes**.
   * **bool bAutoplay**: The content will automatically play after buffering is complete.
   * **bool bLooping**: The content will automatically loop after it ends.
   * **bool bMute**: The content audio will be muted.
+
+* **struct FHISPlayerXRLayerProperties**: Use these properties to setup XR Layer's properties.
+  * **bool Enable**: Whether this instance outputs through an XR layer. When off, the texture path is used.
+  * **EHISPlayerXRLayerShape Shape**: The shape of output video. Quad, Equirect 360, Equirect 180
+  * **EHISPlayerXRLayerPlacement Placement**: The order of XR Video Layer. Overlay or Underlay.  
+  * **bool bMatchVideoAspect**: Quad only. Shrinks the quad inside the screen area to the aspect ratio of one eye of the video.
 
 * **public class UDelegateManager**: Use this delegate to receive the different HISPlayer events.
   * **OnLoading**: The content starts loading.
@@ -56,6 +76,14 @@ Use the following UFunctions in your blueprint or script to make your custom HIS
 Pre-initialize HISPlayer. You must call this function on BeginPlay before the SetUp.
   * **Param1**: The number of streams to instantiate.
 
+#### static void EnableXRVideoLayer(int streamIndex, AActor* TargetActor, const FHISPlayerXRLayerProperties& Properties, HISPlayerStereoFormat StereoFormat) // HISPlayer Enable XR Video Layer
+Setup HISPlayer XR Layer which outputs the stream through XR Layer.
+Call it after `BeginPlay` and before `Setup` of the same stream. Does nothing when Properties.Enable is off or this API is not called.
+  * **Param1**: Stream index.
+  * **Param2**: Target XR Video Layer Actor.
+  * **Param3**: XR Video Layer Properties.
+  * **Param4**: Video stereo format.
+
 #### static void Setup(int streamIndex, UTexture2D*& outputTexture) // HISPlayer Setup
 Initialize HISPlayer. It creates a texture in runtime internally.
   * **Param1**: Stream index.
@@ -88,6 +116,11 @@ Change current video. A valid URL and Key Server URI must be passed as parameter
   * **Param3**: The license URL key associated.
   * **Param4**: Token header.
   * **Param5**: Token value.
+
+### static FStrig GetWidevineSecurityLevel(int streamIndex)  // HISPlayer Get Current Widevien Security Level
+Get current Widevine DRM Security Level.
+  * **Param1**: Stream index.
+  * **Return**: Returns the level of the last DRM session ("L1"/"L3"), or an empty string if none was created.
 
 #### static void Update(int streamIndex) // HISPlayer Update
 Update each frame, needs to be called every frame.

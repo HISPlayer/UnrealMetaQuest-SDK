@@ -169,6 +169,12 @@ To find this field, go to the Level Outliner and look for the `BP_HISPlayer` act
 <img width="849" height="681" alt="image" src="https://github.com/user-attachments/assets/74e9097f-4ab4-41f9-adf0-570e11995b91" />
 </p>
 
+## HISPlayer XR Video Layer
+To play Widevine L1 DRM content on Meta Quest, the decoder output has to go straight to a protected Surface. <br>
+XR Video Layer adds a path that outputs the video directly to an **OpenXR compositor layer**.
+
+Please reference the [XR Video Layer](./xr-video-layer.md) for more information.
+
 ## Configure Android Project Settings
 Please go to **Edit > Project Settings > Platforms > Android**.
 

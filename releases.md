@@ -1,5 +1,10 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 3.0.0-xr
+##### Oct XX, 2026
+- [**Added**] Support WideVine DRM Level1.
+- [**Added**] Support direct access to Android Surface.
+
 ### Version 2.13.0
 ##### Sep 18, 2026
 - [**Added**] Ambisonic support.

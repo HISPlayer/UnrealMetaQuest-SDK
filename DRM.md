@@ -4,7 +4,7 @@ In the video streaming industry, the DRM (Digital Rights Management) makes possi
 Encrypted content is prepared using an encryption server and stored in a content library. The encrypted content is streamed or downloaded 
 from the content library to client devices via content servers. Licenses to view the content are obtained from the License Server.
 
-The HISPlayer Unreal SDK for Meta Quest supports [Widevine DRM](https://www.widevine.com/solutions/widevine-drm). Only Widevine with security L3 is supported.
+The HISPlayer Unreal SDK for Meta Quest supports [Widevine DRM](https://www.widevine.com/solutions/widevine-drm).
 It is also possible to add another level of protection with DRM tokens, using a token header and a token value.
 
 It is possible to add the URL, the Key Server URI and the tokens from the Editor. Please, refer to the **BP_HISPlayer** located in 
@@ -28,8 +28,9 @@ You can see these fields in the Unreal window "Details" under the component **HI
 custom blueprint, please refer to the function [**OpenPlayerWithDRM**](https://hisplayer.github.io/UnrealAndroid-SDK/#/hisplayer-api?id=functions).
 
 <p align="center">
-<img width=60% alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/47497948/b42f22e1-93a4-46fd-b3f2-a33743abd226">
+<img width=500px alt="image" src="https://github.com/HISPlayer/UnrealAndroid-SDK/assets/47497948/b42f22e1-93a4-46fd-b3f2-a33743abd226">
 </p>
 
 ## Widevine L1
-If you need to play Widevine L1 content with Meta Quest devices, please [contact HISPlayer team](https://hisplayer.com/demo-ue-player-sdk-for-meta-quest/). 
+If you want to play Widevine L1 content with Meta Quest devices, you should use XR Video Layer. <br>
+Please reference the [XR Video Layer](./xr-video-layer.md) for more information.

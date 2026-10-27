@@ -169,6 +169,9 @@ To find this field, go to the Level Outliner and look for the `BP_HISPlayer` act
 <img width="849" height="681" alt="image" src="https://github.com/user-attachments/assets/74e9097f-4ab4-41f9-adf0-570e11995b91" />
 </p>
 
+## HISPlayer XR Video Layer
+To play Widevine L1 DRM content and high resolution video, please refer to [XR Video Layer](./xr-video-layer.md).
+
 ## Configure Android Project Settings
 Please go to **Edit > Project Settings > Platforms > Android**.
 
@@ -179,10 +182,10 @@ Make sure that you have clicked **Configure Android Settings**.
 
 ## HISPlayer VR Sample
 ### Download the Sample
-Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/Quest/HISPlayerVRSample_1.0.7.zip) (no need to download it if you have received it in the email).
+Please, download the sample here: [**HISPlayer VR Sample**](https://downloads.hisplayer.com/Unreal/Quest/HISPlayerVRSample_v2.0.0.zip) (no need to download it if you have received it in the email).
 
 ### Import HISPlayer SDK
-Please use HISPlayer SDK v2.2.0 and above with **Vulkan** support.
+Please use HISPlayer SDK v3.0.0-xr and above with **Vulkan** support.
 
 If you have not imported HISPlayer SDK yet, please follow the [Setup Guide](./setup-guide.md).
 Extract the SDK from the .zip file, copy the `HISPlayer` folder and paste into the `HISPlayerVRSample\Plugins` directory.
@@ -201,6 +204,7 @@ Once the project is opened, you should be inside the `HISPlayerVRLevel` map. You
 - `HISPlayerVRLevelMultistream`
 - `HISPlayerVRStereoscopicLevel`
 - `HISPlayerVRAmbisonicLevel`
+- `HISPlayerVRDRML1Level`
 
 <p align="center">
   <img 

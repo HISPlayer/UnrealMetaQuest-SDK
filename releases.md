@@ -1,7 +1,11 @@
 # HISPlayer Meta Quest SDK Release Notes
 
+### Version 3.0.0
+##### Oct 27, 2026
+- [**Added**] HISPlayerXRLayerProperties to support DRM Level 1 and direct rendering improvement to Android surface.
+
 ### Version 2.13.0
-##### Sep 18, 2026
+##### September 18, 2026
 - [**Added**] Ambisonic support.
 - [**Added**] ChangeVideoContent API support for Windows and MacOS editors.
 - [**Added**] HISPlayerError type to identify the errors reported by the SDK.
@@ -9,7 +13,7 @@
 - [**Improvement**] Improved the error handling system.
 
 ### Version 2.12.0
-##### Jul 31, 2026
+##### July 31, 2026
 - [**Added**] Support for Unreal Engine 5.8.
 - [**Improvement**] Improved AutoPlay behavior to ensure it is consistently applied when disabled during playback initialization.
 - [**Improvement**] Improved video texture color space handling to ensure correct brightness levels across Editor platforms.

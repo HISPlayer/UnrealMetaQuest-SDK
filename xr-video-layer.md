@@ -1,11 +1,14 @@
 # XR Video Layer
 Use XR Video Layer to play Widevine L1 DRM content and high resolution video.
 
+HISPlayer blueprint (**BP_HISPlayer**) automatically includes below step to use XR Video Layer:
+
 Call `HISPlayer Enable XR Video Layer` with Target Actor, XR Layer Properties and Stereo Format parameters.
 Call it after `BeginPlay` and before `Setup` of the same stream to use XR Video Layer. 
 <p align="center">
 <img width=900px alt="image" src="images/enable-xr-video-layer.png">
 </p>
+
 If it is not called or XRLayerProperties.Enable is false, then Texture Render mode will be used. In this case only DRM L3 is available.
 
 ## XR Video Layer Properties

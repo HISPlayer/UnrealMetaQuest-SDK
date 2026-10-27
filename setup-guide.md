@@ -47,21 +47,20 @@ public class HISPlayerVRSampleTarget : TargetRules
 {
 	public HISPlayerVRSampleTarget(TargetInfo Target) : base(Target)
 	{
-#if UE_5_7_OR_LATER
 		Type = TargetType.Game;
+#if UE_5_8_OR_LATER
+		DefaultBuildSettings = BuildSettingsVersion.V7;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
+#elif UE_5_7_OR_LATER
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
-		ExtraModuleNames.Add("HISPlayerVRSample");
 #elif UE_5_4_OR_LATER
-		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
-		ExtraModuleNames.Add("HISPlayerVRSample");
 #else
-		Type = TargetType.Game;
         DefaultBuildSettings = BuildSettingsVersion.V2;
-        ExtraModuleNames.AddRange(new string[] { "HISPlayerVRSample" });
 #endif
+		ExtraModuleNames.Add("HISPlayerVRSample");
     }
 }
 ```
@@ -71,21 +70,20 @@ public class HISPlayerVRSampleEditorTarget : TargetRules
 {
 	public HISPlayerVRSampleEditorTarget(TargetInfo Target) : base(Target)
 	{
-#if UE_5_7_OR_LATER
 		Type = TargetType.Editor;
+#if UE_5_8_OR_LATER
+		DefaultBuildSettings = BuildSettingsVersion.V7;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
+#elif UE_5_7_OR_LATER
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
-		ExtraModuleNames.Add("HISPlayerVRSample");
 #elif UE_5_4_OR_LATER
-		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
-		ExtraModuleNames.Add("HISPlayerVRSample");
 #else
-		Type = TargetType.Editor;
         DefaultBuildSettings = BuildSettingsVersion.V2;
-        ExtraModuleNames.AddRange(new string[] { "HISPlayerVRSample" });
 #endif
+		ExtraModuleNames.Add("HISPlayerVRSample");
     }
 }
 ```

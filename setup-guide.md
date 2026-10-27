@@ -207,6 +207,7 @@ Once the project is opened, you should be inside the `HISPlayerVRLevel` map. You
 - `HISPlayerVRLevelMultistream`
 - `HISPlayerVRStereoscopicLevel`
 - `HISPlayerVRAmbisonicLevel`
+- `HISPlayerVRDRML1Level`
 
 <p align="center">
   <img 

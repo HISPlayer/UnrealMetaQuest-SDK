@@ -1,13 +1,12 @@
 # XR Video Layer
-To play Widevine L1 DRM content on Meta Quest, the decoder output has to go straight to a protected Surface. 
-XR Video Layer adds a path that outputs the video directly to an **OpenXR compositor layer**.
+Use XR Video Layer to play Widevine L1 DRM content and high resolution video.
 
-To use XR Video Layer user should call `HISPlayer Enable XR Video Layer` with Target Actor, XR Layer Properties and Stereo Format parameters.
+Call `HISPlayer Enable XR Video Layer` with Target Actor, XR Layer Properties and Stereo Format parameters.
 Call it after `BeginPlay` and before `Setup` of the same stream to use XR Video Layer. 
 <p align="center">
 <img width=900px alt="image" src="images/enable-xr-video-layer.png">
 </p>
-If it is not called or XRLayerProperties.Enable is false then Texture Render mode will be used. In this case only DRM L3 is available.
+If it is not called or XRLayerProperties.Enable is false, then Texture Render mode will be used. In this case only DRM L3 is available.
 
 ## XR Video Layer Properties
 With this user can specify the properties of XR Video Layer.
@@ -28,7 +27,7 @@ The compositor blends submitted layers in array order, back to front. The engine
 
 * **Underlay**: Before the projection layer (from index 0).
 
-When sorting stereo layers, UE 5.6 OpenXRHMD always puts face-locked layers last, then orders by Priority.
+When sorting stereo layers, UE OpenXRHMD always puts face-locked layers last, then orders by Priority.
 
 <p align="center">
 <img width=800px alt="image" src="images/compare-layer-placement.png">

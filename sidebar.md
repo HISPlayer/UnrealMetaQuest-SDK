@@ -1,7 +1,7 @@
 - [HISPlayer Unreal Meta Quest SDK](/introduction.md)
 - [Quickstart Guide](/setup-guide.md)
 - [HISPlayer API](/hisplayer-api.md)
-- [XR Video Layer](/XRVideoLayer.md)
+- [XR Video Layer](/xr-video-layer.md)
 - [Playing Local Files](/local-files.md)
 - [DRM](/DRM.md)
 - [Stereoscopic](/stereoscopic.md)
